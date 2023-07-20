@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>On-Scroll Image Layout Animations | Codrops</title>
+		<meta name="description" content="An exploration of different scroll based layout switch animations." />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/cch1nog.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+	</head>
+	<body class="loading">
+		<main>
+			<div class="frame">
+				<div class="frame__title"> 
+					<h1 class="frame__title-main">On-Scroll Image Layout Animations</h1> 
+					<a aria-label="Back to the article" class="frame__title-back" href="https://tympanus.net/codrops/?p=72941"> 
+						<span class="oh__inner">Back to the article</span> 
+						<svg width="18px" height="18px" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"></path>
+						</svg>
+					</a>
+				</div>
+				<a class="frame__prev" href="https://tympanus.net/Development/TextBlockTransitions/">Previous demo</a>
+			</div>
+			<section class="project project--intro">
+				<span class="project__label project__label--name">Project</span>
+				<span class="project__name">AI Art</span>
+				<span class="project__label project__label--date">Date</span>
+				<span class="project__date">July, 2023</span>
+				<h2 class="project__title">
+					<span class="project__title-line">Creativity</span>
+					<span class="project__title-line">Redefined</span>
+				</h2>
+				<span class="project__label project__label--mission">Mission</span>
+				<div class="project__mission">
+					<p>The AI-Art Project is a transformative initiative dedicated to exploring the immense impact of AI-generated art on the art world and artists. We aim to discover and promote exceptional AI-generated artworks that push the boundaries of creativity, redefine traditional practices, and provoke thought. </p>
+					<p>Through collaborations with artists, workshops, and educational programs, we empower artists to leverage AI as a tool for exploration, expanding their artistic horizons and embracing new forms of expression.</p>
+				</div>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--row" id="gallery-1">
+					<div class="gallery__item gallery__item--s" style="background-image:url(img/6.jpg)"></div>
+					<div class="gallery__item gallery__item--m" style="background-image:url(img/3.jpg)"></div>
+					<div class="gallery__item gallery__item--l" style="background-image:url(img/4.jpg)"></div>
+					<div class="gallery__item gallery__item--xl gallery__item--center" style="background-image:url(img/1.jpg)"></div>
+					<div class="gallery__item gallery__item--l" style="background-image:url(img/5.jpg)"></div>
+					<div class="gallery__item gallery__item--m" style="background-image:url(img/2.jpg)"></div>
+					<div class="gallery__item gallery__item--s" style="background-image:url(img/6.jpg)"></div>
+					<div class="caption">
+						Within this meticulously arranged AI-generated ensemble lies a tantalizing facade, captivating our gaze. Yet, as we search for the soul of human expression, we question whether algorithms can truly embody the essence of authentic art.
+					</div>
+				</div>
+			</div>
+			<section class="project project--details project--left">
+				<span class="project__label project__label--default">Ethical Considerations</span>
+				<p>The emergence of AI-generated art raises ethical questions and concerns. One of the key challenges is navigating the boundaries of authorship and ownership. Determining the role of AI algorithms and their creators in the artistic process, as well as addressing issues of attribution and intellectual property, requires careful deliberation. Additionally, ensuring that AI-generated art does not perpetuate bias, discrimination, or harmful content is crucial for fostering a responsible and inclusive artistic landscape.</p>
+			</section>
+			<div class="gallery-wrap gallery-wrap--large">
+				<div class="gallery gallery--grid gallery--breakout" id="gallery-2">
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/8.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/7.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/15.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/9.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/12.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/14.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/10.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/13.jpg)"></div></div>
+					<div class="gallery__item gallery__item-cut"><div class="gallery__item-inner" style="background-image:url(img/11.jpg)"></div></div>
+					<div class="caption">
+						<p>Devoid of inherent knowledge, the language model relies solely on probabilities to craft a peculiar vision. As a result, the earrings hang in curious defiance of physics, inviting us to ponder the implications of relinquishing human understanding in the pursuit of artificial creativity.</p>
+					</div>
+				</div>
+			</div>
+			<section class="project project--details project--right">
+				<span class="project__label project__label--default">Preserving Artistic Identity</span>
+				<p>While AI offers new avenues for artistic exploration, there is a concern that it may overshadow or replace human creativity. Balancing the integration of AI tools and techniques with preserving the unique perspectives, emotional depth, and artistic identity of human artists is a significant challenge. Striking the right balance between AI-generated art and the irreplaceable human touch requires thoughtful consideration and an ongoing dialogue between artists, technologists, and the wider art community.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--grid10" id="gallery-3">
+					<div class="gallery__item pos-1" style="background-image:url(img/16.jpg)"></div>
+					<div class="gallery__item pos-2" style="background-image:url(img/17.jpg)"></div>
+					<div class="gallery__item pos-3" style="background-image:url(img/18.jpg)"></div>
+					<div class="gallery__item pos-4" style="background-image:url(img/30.jpg)"></div>
+					<div class="gallery__item pos-5" style="background-image:url(img/20.jpg)"></div>
+					<div class="gallery__item pos-6" style="background-image:url(img/21.jpg)"></div>
+					<div class="gallery__item pos-7" style="background-image:url(img/22.jpg)"></div>
+					<div class="gallery__item pos-8" style="background-image:url(img/23.jpg)"></div>
+					<div class="gallery__item pos-9" style="background-image:url(img/24.jpg)"></div>
+					<div class="gallery__item pos-10" style="background-image:url(img/25.jpg)"></div>
+					<div class="gallery__item pos-11" style="background-image:url(img/26.jpg)"></div>
+					<div class="gallery__item pos-12" style="background-image:url(img/31.jpg)"></div>
+					<div class="gallery__item pos-13" style="background-image:url(img/28.jpg)"></div>
+					<div class="gallery__item pos-14" style="background-image:url(img/29.jpg)"></div>
+					<div class="gallery__item pos-15" style="background-image:url(img/19.jpg)"></div>
+					<div class="gallery__item pos-16" style="background-image:url(img/27.jpg)"></div>
+					<div class="caption">The Art of Perfection?</div>
+				</div>
+			</div>
+			<section class="project project--details">
+				<span class="project__label project__label--default">Societal Impact</span>
+				<p>As AI-generated art becomes more prevalent, its long-term impact on the art market, art institutions, and the broader societal perception of art needs to be carefully examined. Understanding the implications of AI-generated art for art sales, copyright laws, and the dynamics of the art market is crucial for shaping future policies and practices. Additionally, exploring the ways in which AI-generated art can democratize artistic expression and challenge traditional hierarchies is an ongoing challenge that requires proactive engagement and collaboration.</p>
+			</section>
+			<div class="gallery-wrap gallery-wrap--dense">
+				<div class="gallery gallery--stack gallery--stack-inverse gallery--stack-dark" id="gallery-4">
+					<div class="gallery__item" style="background-image:url(img/33.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/34.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/35.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/36.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/37.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/38.jpg)"></div>
+					<div class="caption">
+						<p>AI-generated art captivates with varied creations, sometimes senseless, yet impressively enigmatic.</p>
+					</div>
+				</div>
+			</div>
+			<div class="gallery-wrap gallery-wrap--dense">
+				<div class="gallery gallery--stack gallery--stack-glass" id="gallery-5">
+					<div class="gallery__item" style="background-image:url(img/39.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/40.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/41.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/42.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/43.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/44.jpg)"></div>
+					<div class="caption">
+						<p>In the realm of unpredictable algorithms, some variations may appear random or without purpose, challenging traditional notions of beauty and meaning.</p>
+					</div>
+				</div>
+			</div>
+			<div class="gallery-wrap gallery-wrap--dense">
+				<div class="gallery gallery--stack gallery--stack-inverse gallery--stack-scale gallery--stack-dark" id="gallery-6">
+					<div class="gallery__item" style="background-image:url(img/45.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/46.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/47.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/48.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/49.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/50.jpg)"></div>
+					<div class="caption">
+						<p>This uncharted territory challenges artists and art enthusiasts alike, igniting debates about the role of intention and chance in the artistic process.</p>
+					</div>
+				</div>
+			</div>
+			<section class="project project--details project--right">
+				<span class="project__label project__label--default">Unmasking the Void of Authenticity</span>
+				<p>While AI-generated art showcases impressive technical prowess, it leaves behind an unsettling void in the quest for authenticity. As humans, we seek the genuine touch of human hands and the depth of emotional connection embedded within traditional art forms. The lack of human essence in AI-generated creations may leave us yearning for the profound human expression that sparks true resonance, evoking a sense of emptiness in the face of machine-driven artistry.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--gridtiny" id="gallery-7">
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/59.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/60.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/61.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/59.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/60.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/61.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/59.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/60.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/61.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/59.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/60.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/61.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/59.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/60.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/61.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/59.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/60.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/61.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/51.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/52.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/53.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/54.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/55.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/56.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/57.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/58.jpg)"></div>
+					<div class="caption">What is creativity?</div>
+				</div>
+			</div>
+			<section class="project project--details project--left">
+				<span class="project__label project__label--default">Photographic Flaws in Perfect Harmony</span>
+				<p>In the realm of AI-generated photography, the quest for flawlessness inadvertently unveils a striking paradox - the absence of authentic imperfections. Even in the most human-like subjects, wrinkles and blemishes appear too immaculate, leaving us yearning for the raw, unfiltered beauty that only true imperfection can evoke. </p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--bento" id="gallery-8">
+					<div class="gallery__item" style="background-image:url(img/64.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/63.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/62.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/69.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/65.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/67.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/68.jpg)"></div>
+					<div class="gallery__item" style="background-image:url(img/66.jpg)"></div>
+					<div class="caption">Perfect Imperfections</div>
+				</div>
+			</div>
+			<section class="project project--details project--right">
+				<span class="project__label project__label--default">Moving forward</span>
+				<p>As we conclude this transformative project, we are left with profound questions that continue to shape our understanding of AI-generated art and its place in the artistic landscape. How do we reconcile the precision of algorithms with the intangible spark of human creativity? Can machines truly grasp the depth of emotion and meaning that art evokes within us? And as AI continues to advance, how do we preserve the authenticity and soul that define artistic expression? </p>
+			</section>
+			<section class="project project--details project--left">
+				<span class="project__label project__label--default">Photo credits</span>
+				<p>All images except one were generated with <a href="https://midjourney.com">Midjourney</a>. The only "real" image was taken by <a href="https://unsplash.com/@karsten116">Karsten Winegeart</a>. <strong>Can you spot which one?</strong> Hint: it's one of the portraits in the last image grid. Let us know via <a href="https://twitter.com/intent/tweet?text=@codrops">@codrops</a>.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--one" id="gallery-9">
+					<div class="gallery__item" style="background-image:url(img/70.jpg)"></div>
+					<div class="caption">Made by @codrops</div>
+				</div>
+			</div>
+			<section class="project project--details project--left">
+				<p>Like AI-generated art? Get a <a href="https://tympanus.net/codrops/2023/06/12/free-ai-generated-images-vol-1/">free AI Art collection</a> plus prompts to get inspired.</p>
+			</section>
+		</main>
+		<script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+		<script src="js/gsap.min.js"></script>
+		<script src="js/Flip.min.js"></script>
+		<script src="js/ScrollTrigger.min.js"></script>
+		<script src="js/lenis.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="module" src="js/index.js"></script>
+	</body>
+</html>
