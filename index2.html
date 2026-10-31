@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>On-Scroll Image Layout Animations: Layouts 02 | Codrops</title>
+		<meta name="description" content="Near Copies: one prompt, many answers. Ten image layouts that switch on scroll, from a 3D carousel to a question mark of tiles. Made with GSAP Flip and Lenis." />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Codrops" />
+		<link rel="canonical" href="https://tympanus.net/Development/ScrollBasedLayoutAnimations/index2.html" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Codrops" />
+		<meta property="og:title" content="On-Scroll Image Layout Animations: Layouts 02 | Codrops" />
+		<meta property="og:description" content="Near Copies: one prompt, many answers. Ten image layouts that switch on scroll, from a 3D carousel to a question mark of tiles. Made with GSAP Flip and Lenis." />
+		<meta property="og:url" content="https://tympanus.net/Development/ScrollBasedLayoutAnimations/index2.html" />
+		<meta property="og:image" content="https://tympanus.net/Development/ScrollBasedLayoutAnimations/og-image2.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Seven pastel sculptures of stacked shapes: one large picture above a strip of six small ones" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@codrops" />
+		<meta name="twitter:title" content="On-Scroll Image Layout Animations: Layouts 02 | Codrops" />
+		<meta name="twitter:description" content="Near Copies: one prompt, many answers. Ten image layouts that switch on scroll, from a 3D carousel to a question mark of tiles. Made with GSAP Flip and Lenis." />
+		<meta name="twitter:image" content="https://tympanus.net/Development/ScrollBasedLayoutAnimations/og-image2.jpg" />
+		<meta name="twitter:image:alt" content="Seven pastel sculptures of stacked shapes: one large picture above a strip of six small ones" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="preconnect" href="https://use.typekit.net" crossorigin />
+		<link rel="preconnect" href="https://p.typekit.net" />
+		<link rel="stylesheet" href="https://use.typekit.net/cch1nog.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className = 'js';</script>
+		<!-- Added on the live server only, leave commented out in the repo -->
+		<!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "On-Scroll Image Layout Animations: Layouts 02",
+			"description": "Near Copies: one prompt, many answers. Ten image layouts that switch on scroll, from a 3D carousel to a question mark of tiles. Made with GSAP Flip and Lenis.",
+			"url": "https://tympanus.net/Development/ScrollBasedLayoutAnimations/index2.html",
+			"author": {
+				"@type": "Organization",
+				"name": "Codrops",
+				"url": "https://tympanus.net/codrops/"
+			},
+			"isPartOf": {
+				"@type": "WebSite",
+				"name": "Codrops",
+				"url": "https://tympanus.net/codrops/"
+			},
+			"relatedLink": [
+				"https://tympanus.net/codrops/2023/07/20/scroll-based-layout-animations/",
+				"https://github.com/codrops/ScrollBasedLayoutAnimations"
+			]
+		}
+		</script>
+	</head>
+	<body class="loading">
+		<main>
+			<header class="frame">
+				<h1 class="frame__title">On-Scroll Image Layout Animations</h1>
+				<nav class="frame__links" aria-label="Demo links">
+					<a href="https://tympanus.net/codrops/?p=72941">Article</a>
+					<a href="https://tympanus.net/codrops/hub/">All demos</a>
+					<a href="https://github.com/codrops/ScrollBasedLayoutAnimations/">GitHub</a>
+				</nav>
+				<nav class="frame__tags" aria-label="Tags">
+					<a href="https://tympanus.net/codrops/hub/tag/scroll/">#scroll</a>
+					<a href="https://tympanus.net/codrops/hub/tag/gsap/">#gsap</a>
+				</nav>
+				<nav class="frame__demos" aria-label="Layouts">
+					<span class="frame__demos-label">Layouts</span>
+					<a class="frame__demo" href="index.html">01</a>
+					<span class="frame__demo frame__demo--current" aria-current="page">02</span>
+				</nav>
+			</header>
+			<section class="project project--intro">
+				<span class="project__label project__label--name">Project</span>
+				<span class="project__name">Near Copies</span>
+				<span class="project__label project__label--date">Date</span>
+				<span class="project__date">October, 2026</span>
+				<h2 class="project__title">
+					<span class="project__title-line">One Prompt</span>
+					<span class="project__title-line">Many Answers</span>
+				</h2>
+				<span class="project__label project__label--mission">About</span>
+				<div class="project__mission">
+					<p>Near Copies collects what an image model gives back when you ask it for the same picture again and again. We kept each prompt, changed one small detail at a time, and saved every answer: a hand that moves, a strand of hair that falls, light that shifts by an hour.</p>
+					<p>Side by side, the results look less like errors and more like contact sheets from a single shoot. This page lays them out the way a designer might, in rows, stacks and grids, and lets each arrangement turn into the next as you scroll.</p>
+				</div>
+			</section>
+			<div class="gallery-wrap gallery-wrap--3d">
+				<div class="gallery gallery--carousel" id="gallery-carousel" role="figure" aria-label="Pastel 3D still lifes of stacked spheres, rings, columns and discs on pedestals">
+					<div class="gallery__item" style="background-image:url(img/98.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/99.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/100.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/101.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/102.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/103.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/104.webp)"></div>
+					<div class="caption">
+						Seven answers to one prompt about balance: the same few shapes, stacked a different way each time.
+					</div>
+				</div>
+			</div>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--pyramid" id="gallery-pyramid" role="figure" aria-label="Pastel 3D still lifes of stacked spheres, rings, columns and discs, a collage that stacks into a pyramid">
+					<div class="gallery__item" style="background-image:url(img/98.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/99.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/100.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/101.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/102.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/103.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/104.webp)"></div>
+					<div class="caption">
+						<p>Stacked once more, the seven variations balance like the shapes inside them.</p>
+					</div>
+				</div>
+			</div>
+			<section class="project project--details project--left">
+				<h3 class="project__heading project__label project__label--default">The Prompt</h3>
+				<p>Every image on this page began as a sentence. Sent once, it returns one picture. Sent again with a single word changed, it returns a cousin of that picture, close enough to compare and different enough to notice. The small gaps between those versions are what this project is about.</p>
+			</section>
+
+			<div class="gallery-wrap">
+				<div class="gallery gallery--sunflower" id="gallery-sunflower" role="figure" aria-label="Illustrations of quiet figures in landscapes, printed in two inks, ink blue and peach, arranged like the seeds of a sunflower">
+					<div class="gallery__item" style="--i:0;background-image:url(img/114.webp)"></div>
+					<div class="gallery__item" style="--i:1;background-image:url(img/115.webp)"></div>
+					<div class="gallery__item" style="--i:2;background-image:url(img/116.webp)"></div>
+					<div class="gallery__item" style="--i:3;background-image:url(img/117.webp)"></div>
+					<div class="gallery__item" style="--i:4;background-image:url(img/118.webp)"></div>
+					<div class="gallery__item" style="--i:5;background-image:url(img/119.webp)"></div>
+					<div class="gallery__item" style="--i:6;background-image:url(img/120.webp)"></div>
+					<div class="gallery__item" style="--i:7;background-image:url(img/121.webp)"></div>
+					<div class="gallery__item" style="--i:8;background-image:url(img/122.webp)"></div>
+					<div class="gallery__item" style="--i:9;background-image:url(img/123.webp)"></div>
+					<div class="gallery__item" style="--i:10;background-image:url(img/124.webp)"></div>
+					<div class="gallery__item" style="--i:11;background-image:url(img/125.webp)"></div>
+					<div class="gallery__item" style="--i:12;background-image:url(img/126.webp)"></div>
+					<div class="gallery__item" style="--i:13;background-image:url(img/127.webp)"></div>
+					<div class="gallery__item" style="--i:14;background-image:url(img/128.webp)"></div>
+					<div class="gallery__item" style="--i:15;background-image:url(img/129.webp)"></div>
+					<div class="gallery__item" style="--i:16;background-image:url(img/130.webp)"></div>
+					<div class="gallery__item" style="--i:17;background-image:url(img/131.webp)"></div>
+					<div class="gallery__item" style="--i:18;background-image:url(img/132.webp)"></div>
+					<div class="gallery__item" style="--i:19;background-image:url(img/133.webp)"></div>
+					<div class="gallery__item" style="--i:20;background-image:url(img/114.webp)"></div>
+					<div class="gallery__item" style="--i:21;background-image:url(img/115.webp)"></div>
+					<div class="gallery__item" style="--i:22;background-image:url(img/116.webp)"></div>
+					<div class="gallery__item" style="--i:23;background-image:url(img/117.webp)"></div>
+					<div class="gallery__item" style="--i:24;background-image:url(img/118.webp)"></div>
+					<div class="gallery__item" style="--i:25;background-image:url(img/119.webp)"></div>
+					<div class="gallery__item" style="--i:26;background-image:url(img/120.webp)"></div>
+					<div class="gallery__item" style="--i:27;background-image:url(img/121.webp)"></div>
+					<div class="gallery__item" style="--i:28;background-image:url(img/122.webp)"></div>
+					<div class="gallery__item" style="--i:29;background-image:url(img/123.webp)"></div>
+					<div class="gallery__item" style="--i:30;background-image:url(img/124.webp)"></div>
+					<div class="gallery__item" style="--i:31;background-image:url(img/125.webp)"></div>
+					<div class="gallery__item" style="--i:32;background-image:url(img/126.webp)"></div>
+					<div class="gallery__item" style="--i:33;background-image:url(img/127.webp)"></div>
+					<div class="gallery__item" style="--i:34;background-image:url(img/128.webp)"></div>
+					<div class="gallery__item" style="--i:35;background-image:url(img/129.webp)"></div>
+					<div class="gallery__item" style="--i:36;background-image:url(img/130.webp)"></div>
+					<div class="gallery__item" style="--i:37;background-image:url(img/131.webp)"></div>
+					<div class="gallery__item" style="--i:38;background-image:url(img/132.webp)"></div>
+					<div class="gallery__item" style="--i:39;background-image:url(img/133.webp)"></div>
+					<div class="gallery__item" style="--i:40;background-image:url(img/114.webp)"></div>
+					<div class="gallery__item" style="--i:41;background-image:url(img/115.webp)"></div>
+					<div class="gallery__item" style="--i:42;background-image:url(img/116.webp)"></div>
+					<div class="gallery__item" style="--i:43;background-image:url(img/117.webp)"></div>
+					<div class="gallery__item" style="--i:44;background-image:url(img/118.webp)"></div>
+					<div class="gallery__item" style="--i:45;background-image:url(img/119.webp)"></div>
+					<div class="gallery__item" style="--i:46;background-image:url(img/120.webp)"></div>
+					<div class="gallery__item" style="--i:47;background-image:url(img/121.webp)"></div>
+					<div class="gallery__item" style="--i:48;background-image:url(img/122.webp)"></div>
+					<div class="gallery__item" style="--i:49;background-image:url(img/123.webp)"></div>
+					<div class="gallery__item" style="--i:50;background-image:url(img/124.webp)"></div>
+					<div class="gallery__item" style="--i:51;background-image:url(img/125.webp)"></div>
+					<div class="gallery__item" style="--i:52;background-image:url(img/126.webp)"></div>
+					<div class="gallery__item" style="--i:53;background-image:url(img/127.webp)"></div>
+					<div class="gallery__item" style="--i:54;background-image:url(img/128.webp)"></div>
+					<div class="gallery__item" style="--i:55;background-image:url(img/129.webp)"></div>
+					<div class="gallery__item" style="--i:56;background-image:url(img/130.webp)"></div>
+					<div class="gallery__item" style="--i:57;background-image:url(img/131.webp)"></div>
+					<div class="gallery__item" style="--i:58;background-image:url(img/132.webp)"></div>
+					<div class="gallery__item" style="--i:59;background-image:url(img/133.webp)"></div>
+					<div class="gallery__item" style="--i:60;background-image:url(img/114.webp)"></div>
+					<div class="gallery__item" style="--i:61;background-image:url(img/115.webp)"></div>
+					<div class="gallery__item" style="--i:62;background-image:url(img/116.webp)"></div>
+					<div class="gallery__item" style="--i:63;background-image:url(img/117.webp)"></div>
+					<div class="gallery__item" style="--i:64;background-image:url(img/118.webp)"></div>
+					<div class="gallery__item" style="--i:65;background-image:url(img/119.webp)"></div>
+					<div class="gallery__item" style="--i:66;background-image:url(img/120.webp)"></div>
+					<div class="gallery__item" style="--i:67;background-image:url(img/121.webp)"></div>
+					<div class="gallery__item" style="--i:68;background-image:url(img/122.webp)"></div>
+					<div class="gallery__item" style="--i:69;background-image:url(img/123.webp)"></div>
+					<div class="gallery__item" style="--i:70;background-image:url(img/124.webp)"></div>
+					<div class="gallery__item" style="--i:71;background-image:url(img/125.webp)"></div>
+					<div class="gallery__item" style="--i:72;background-image:url(img/126.webp)"></div>
+					<div class="gallery__item" style="--i:73;background-image:url(img/127.webp)"></div>
+					<div class="gallery__item" style="--i:74;background-image:url(img/128.webp)"></div>
+					<div class="gallery__item" style="--i:75;background-image:url(img/129.webp)"></div>
+					<div class="gallery__item" style="--i:76;background-image:url(img/130.webp)"></div>
+					<div class="gallery__item" style="--i:77;background-image:url(img/131.webp)"></div>
+					<div class="gallery__item" style="--i:78;background-image:url(img/132.webp)"></div>
+					<div class="gallery__item" style="--i:79;background-image:url(img/133.webp)"></div>
+					<div class="gallery__item" style="--i:80;background-image:url(img/114.webp)"></div>
+					<div class="gallery__item" style="--i:81;background-image:url(img/115.webp)"></div>
+					<div class="gallery__item" style="--i:82;background-image:url(img/116.webp)"></div>
+					<div class="gallery__item" style="--i:83;background-image:url(img/117.webp)"></div>
+					<div class="gallery__item" style="--i:84;background-image:url(img/118.webp)"></div>
+					<div class="gallery__item" style="--i:85;background-image:url(img/119.webp)"></div>
+					<div class="gallery__item" style="--i:86;background-image:url(img/120.webp)"></div>
+					<div class="gallery__item" style="--i:87;background-image:url(img/121.webp)"></div>
+					<div class="gallery__item" style="--i:88;background-image:url(img/122.webp)"></div>
+					<div class="gallery__item" style="--i:89;background-image:url(img/123.webp)"></div>
+					<div class="caption">
+						<p>Twenty scenes in one style, printed in two inks, again and again.</p>
+					</div>
+				</div>
+			</div>
+			<section class="project project--details project--right">
+				<h3 class="project__heading project__label project__label--default">Keeping a Face</h3>
+				<p>Asking a model for something new is easy. Asking it to keep something the same is harder. To hold a face, a sweater or a horizon steady across six images, each one was made from the one before it. What stays fixed says as much about the model as what changes.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--sun" id="gallery-sun" role="figure" aria-label="Abstract compositions of circles and shapes in faded blue, peach and rust, blooming into a sun">
+					<div class="gallery__item" style="background-image:url(img/134.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/135.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/136.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/148.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/138.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/139.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/140.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/141.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/142.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/143.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/144.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/149.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/146.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/147.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/137.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/145.webp)"></div>
+					<div class="caption">Sixteen ways to draw a circle</div>
+				</div>
+			</div>
+			<section class="project project--details">
+				<h3 class="project__heading project__label project__label--default">Series or Alternatives</h3>
+				<p>In a grid, near copies read like frames from one roll of film. In a stack, they read like a flipbook. Cut and joined, they turn back into a single picture. The images below never change. Only their order, size and spacing do, and that alone decides what you see first.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--pile" id="gallery-pile" role="figure" aria-label="Six portraits of a young man in a blue linen shirt holding an orange on a salt flat, tossed onto a pile">
+					<div class="gallery__item" style="background-image:url(img/71.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/72.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/73.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/74.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/75.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/76.webp)"></div>
+					<div class="caption">
+						<p>Six takes on one portrait. The orange moves, the man stays, and the pile keeps every version.</p>
+					</div>
+				</div>
+			</div>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--slices" id="gallery-slices" role="figure" aria-label="Six portraits of a young woman in a mustard sweater holding a white bowl against a pink wall, cut into bands that make one portrait">
+					<div class="gallery__item" style="background-image:url(img/77.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/78.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/79.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/80.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/81.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/82.webp)"></div>
+					<div class="caption">
+						<p>Cut into bands, six variations add up to one face. Almost, but not quite.</p>
+					</div>
+				</div>
+			</div>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--stairs" id="gallery-stairs" role="figure" aria-label="Six portraits of a woman with a black bob in a chartreuse turtleneck holding a chrome sphere in the desert, a curtain of strips that steps down a staircase">
+					<div class="gallery__item" style="background-image:url(img/83.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/84.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/85.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/86.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/87.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/88.webp)"></div>
+					<div class="caption">
+						<p>Same pose, same sky, six moments apart. Arranged by size, they start to read like a sequence.</p>
+					</div>
+				</div>
+			</div>
+			<section class="project project--details project--right">
+				<h3 class="project__heading project__label project__label--default">Whose Hand</h3>
+				<p>Ask for a pig painted in the manner of a famous artist and you can fill a wall with them, every one plausibly from the same brush. The style is borrowed, the subject is absurd, and the question it leaves behind is the one this collection keeps coming back to.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--question" id="gallery-question" role="figure" aria-label="A grid of colorful cubist-style paintings of pigs, regrouping into a question mark">
+					<div class="gallery__item" style="--gr:1;--gc:4;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:1;--gc:5;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:1;--gc:6;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:1;--gc:7;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:1;--gc:8;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:1;--gc:9;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:3;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:4;background-image:url(img/58.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:5;background-image:url(img/59.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:6;background-image:url(img/60.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:7;background-image:url(img/61.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:8;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:9;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:2;--gc:10;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:2;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:3;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:4;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:5;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:6;background-image:url(img/58.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:7;background-image:url(img/59.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:8;background-image:url(img/60.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:9;background-image:url(img/61.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:10;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:3;--gc:11;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:2;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:3;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:4;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:9;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:10;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:11;background-image:url(img/58.webp)"></div>
+					<div class="gallery__item" style="--gr:4;--gc:12;background-image:url(img/59.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:1;background-image:url(img/60.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:2;background-image:url(img/61.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:3;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:4;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:9;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:10;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:11;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:5;--gc:12;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:6;--gc:1;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:6;--gc:2;background-image:url(img/58.webp)"></div>
+					<div class="gallery__item" style="--gr:6;--gc:3;background-image:url(img/59.webp)"></div>
+					<div class="gallery__item" style="--gr:6;--gc:10;background-image:url(img/60.webp)"></div>
+					<div class="gallery__item" style="--gr:6;--gc:11;background-image:url(img/61.webp)"></div>
+					<div class="gallery__item" style="--gr:6;--gc:12;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:7;--gc:9;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:7;--gc:10;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:7;--gc:11;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:7;--gc:12;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:8;--gc:8;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:8;--gc:9;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:8;--gc:10;background-image:url(img/58.webp)"></div>
+					<div class="gallery__item" style="--gr:8;--gc:11;background-image:url(img/59.webp)"></div>
+					<div class="gallery__item" style="--gr:9;--gc:7;background-image:url(img/60.webp)"></div>
+					<div class="gallery__item" style="--gr:9;--gc:8;background-image:url(img/61.webp)"></div>
+					<div class="gallery__item" style="--gr:9;--gc:9;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:9;--gc:10;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:10;--gc:6;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:10;--gc:7;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:10;--gc:8;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:10;--gc:9;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:11;--gc:6;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:11;--gc:7;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:11;--gc:8;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:11;--gc:9;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:12;--gc:6;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:12;--gc:7;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:12;--gc:8;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:15;--gc:6;background-image:url(img/58.webp)"></div>
+					<div class="gallery__item" style="--gr:15;--gc:7;background-image:url(img/59.webp)"></div>
+					<div class="gallery__item" style="--gr:15;--gc:8;background-image:url(img/60.webp)"></div>
+					<div class="gallery__item" style="--gr:15;--gc:9;background-image:url(img/61.webp)"></div>
+					<div class="gallery__item" style="--gr:16;--gc:6;background-image:url(img/51.webp)"></div>
+					<div class="gallery__item" style="--gr:16;--gc:7;background-image:url(img/52.webp)"></div>
+					<div class="gallery__item" style="--gr:16;--gc:8;background-image:url(img/53.webp)"></div>
+					<div class="gallery__item" style="--gr:16;--gc:9;background-image:url(img/54.webp)"></div>
+					<div class="gallery__item" style="--gr:17;--gc:6;background-image:url(img/55.webp)"></div>
+					<div class="gallery__item" style="--gr:17;--gc:7;background-image:url(img/56.webp)"></div>
+					<div class="gallery__item" style="--gr:17;--gc:8;background-image:url(img/57.webp)"></div>
+					<div class="gallery__item" style="--gr:17;--gc:9;background-image:url(img/58.webp)"></div>
+					<div class="caption">Who is the artist<span class="caption__mark">?</span></div>
+				</div>
+			</div>
+			<section class="project project--details project--left">
+				<h3 class="project__heading project__label project__label--default">Same Pieces</h3>
+				<p>Abstract compositions make the pattern easy to see. The same spheres, discs and thin red frames return in every image, only rearranged. Dealt out into a grid, eight compositions look like one box of building blocks played with eight times.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--deal" id="gallery-deal" role="figure" aria-label="Abstract compositions of spheres, discs and rings in cobalt, peach and coral, dealt from a deck into a frame">
+					<div class="gallery__item" style="background-image:url(img/89.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/90.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/91.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/92.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/93.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/94.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/95.webp)"></div>
+					<div class="gallery__item" style="background-image:url(img/96.webp)"></div>
+					<div class="caption">Same pieces, new order</div>
+				</div>
+			</div>
+			<section class="project project--details project--right">
+				<h3 class="project__heading project__label project__label--default">What Comes Next</h3>
+				<p>Image models keep getting better at doing exactly what they are told. The near misses may become rarer, which is a good reason to keep them now. This page is a small archive of them, and an excuse to try new ways of laying images out.</p>
+			</section>
+			<section class="project project--details project--left">
+				<h3 class="project__heading project__label project__label--default">Photo credits</h3>
+				<p>All images on this page were generated with AI: with <a href="https://midjourney.com">Midjourney</a> (the ones from Layouts 01, and the sunflower's, from our <a href="https://github.com/codrops/Staggered3DGridAnimations">Staggered 3D Grid Animations</a> demo), and with Nano Banana in <a href="https://paper.design">Paper</a>.</p>
+			</section>
+			<div class="gallery-wrap">
+				<div class="gallery gallery--reflow" id="gallery-reflow" role="figure" aria-label="An abandoned rose-coloured palace hall with a fallen marble statue among the rubble, in nine pieces that reflow into the picture">
+					<div class="gallery__item" style="--c:0;--r:0;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:1;--r:0;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:2;--r:0;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:0;--r:1;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:1;--r:1;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:2;--r:1;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:0;--r:2;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:1;--r:2;background-image:url(img/97.webp)"></div>
+					<div class="gallery__item" style="--c:2;--r:2;background-image:url(img/97.webp)"></div>
+					<div class="caption">Made by @codrops</div>
+				</div>
+			</div>
+			<section class="cta">
+				<a class="cta__link" href="https://tympanus.net/codrops/hub/">More demos in the Creative Hub</a>
+				<a class="cta__next" href="index.html">Back to Layouts 01</a>
+			</section>
+
+		</main>
+		<!-- Added on the live server only, leave commented out in the repo -->
+		<!--script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script-->
+		<script src="js/gsap.min.js"></script>
+		<script src="js/Flip.min.js"></script>
+		<script src="js/ScrollTrigger.min.js"></script>
+		<script src="js/lenis.min.js"></script>
+		<script type="module" src="js/index.js"></script>
+	</body>
+</html>

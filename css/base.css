@@ -11,7 +11,7 @@
 	--color-link: #aaa;
 	--color-link-hover: #fff;
 	--color-label: #adadad;
-	--color-text-alt: #575757;
+	--color-text-alt: #888;
 	--color-caption: #fff;
 }
 
@@ -25,6 +25,34 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Lenis' recommended styles (lenis/dist/lenis.css) */
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+	overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+	pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+	transition-property: overflow;
+	transition-duration: 1ms;
+	transition-behavior: allow-discrete;
+}
+
 /* Page Loader */
 .js .loading::before,
 .js .loading::after {
@@ -34,10 +62,7 @@ body {
 }
 
 .js .loading::before {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	inset: 0;
 	background: var(--color-bg);
 }
 
@@ -58,6 +83,12 @@ body {
 	to {
 		opacity: 1;
 		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.js .loading::after {
+		animation: none;
 	}
 }
 
@@ -101,27 +132,14 @@ main {
 	overflow: hidden;
 }
 
-.unbutton {
-	background: none;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	font: inherit;
-	cursor: pointer;
-}
-
-.unbutton:focus {
-	outline: none;
-}
-
 .frame {
 	position: relative;
 	width: 100%;
 	padding: 1rem;
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-areas: 'title' 'prev' 'sponsor' 'demos';
-	grid-gap: 0.5rem;
+	grid-template-areas: 'title' 'links' 'tags' 'demos' 'sponsor';
+	gap: 0.5rem;
 	justify-items: start;
 	align-self: start;
 	justify-self: start;
@@ -131,21 +149,19 @@ main {
 	opacity: 0.7;
 }
 
-body #cdawrap {
-    justify-self: start;
+.frame #cdawrap {
+	grid-area: sponsor;
+	justify-self: start;
 }
 
 .frame a {
 	pointer-events: auto;
-}
-
-.frame a:not(.frame__title-back) {
 	white-space: nowrap;
 	overflow: hidden;
 	position: relative;
 }
 
-.frame a:not(.frame__title-back)::before {
+.frame a::before {
 	content: '';
 	height: 1px;
 	width: 100%;
@@ -156,38 +172,42 @@ body #cdawrap {
 	transform-origin: 0% 50%;
 }
 
-.frame a:not(.frame__title-back):hover::before {
+.frame a:hover::before {
 	transform: scaleX(0);
 	transform-origin: 100% 50%;
 }
 
 .frame__title {
 	grid-area: title;
-	display: flex;
-}
-
-.frame__title-main {
 	font-size: inherit;
 	margin: 0;
 	font-weight: inherit;
 }
 
-.frame__title-back {
-	position: relative;
+.frame__links,
+.frame__tags {
 	display: flex;
-	align-items: flex-end;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
 }
 
-.frame__title-back span {
-	display: none;
+.frame__links {
+	grid-area: links;
 }
 
-.frame__title-back svg {
-	fill: currentColor;
+.frame__tags {
+	grid-area: tags;
 }
 
-.frame__prev {
-	grid-area: prev;
+.frame__demos {
+	grid-area: demos;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+}
+
+.frame__demo--current {
+	color: var(--color-text);
 }
 
 .project {
@@ -195,8 +215,8 @@ body #cdawrap {
 	max-width: 1000px;
 	margin: 20vh auto;
 	display: grid;
-	grid-column-gap: 7vw;
-	grid-row-gap: 0.5rem;
+	column-gap: 7vw;
+	row-gap: 0.5rem;
 }
 
 .project--intro {
@@ -272,10 +292,6 @@ body #cdawrap {
 	grid-area: p1;
 }
 
-.project__mission p:child {
-	grid-area: p2;
-}
-
 .project__mission p {
 	color: var(--color-text-alt);
 }
@@ -295,10 +311,46 @@ body #cdawrap {
 	margin: 0;
 }
 
+/* The closing call to action, to the Creative Hub */
+.cta {
+	display: grid;
+	place-items: center;
+	gap: 2.5rem;
+	margin: 30vh auto 25vh;
+	padding: 1rem;
+	text-align: center;
+}
+
+.cta .cta__link {
+	font-size: clamp(1.25rem, 3vw, 2rem);
+	color: var(--color-text);
+	padding: 0.85em 1.6em;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.cta .cta__link:hover,
+.cta .cta__link:focus-visible {
+	background: var(--color-text);
+	color: var(--color-bg);
+}
+
+/* The other layouts page, quieter than the button */
+.cta .cta__next {
+	color: var(--color-link);
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
+}
+
+.cta .cta__next:hover {
+	color: var(--color-link-hover);
+}
+
 .gallery-wrap {
 	position: relative;
 	width: 100%;
-	height: 100vh;
+	height: 100svh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -306,12 +358,8 @@ body #cdawrap {
 	overflow: hidden;
 }
 
-.gallery-wrap--auto {
-	height: auto;
-}
-
 .gallery-wrap--large {
-	height: 110vh;
+	height: 110svh;
 }
 
 .gallery-wrap--dense {
@@ -630,8 +678,10 @@ body #cdawrap {
 	gap: 1vh;
 }
 
+/* As wide as the screen, or as wide as lets its eight rows fit the screen's height (8 tiles of 10vh and 7 gaps of 2vh,
+   the rest is the padding and nine gaps across), so every tile is whole */
 .gallery--switch.gallery--gridtiny {
-	width: 100%;
+	width: min(100%, 122vh);
 	gap: 2vh;
 }
 
@@ -742,7 +792,7 @@ body #cdawrap {
 .gallery--switch.gallery--grid10 {
 	grid-template-columns: 1fr 300px 1fr;
 	grid-template-rows: 1fr 60vh 1fr;
-	grid-gap: 0;
+	gap: 0;
 }
 
 .gallery--switch.gallery--grid10 .gallery__item {
@@ -766,13 +816,632 @@ body #cdawrap {
 	margin-top: -50vh;
 }
 
+.gallery--sunflower {
+	display: grid;
+	grid-template-rows: repeat(6, auto);
+	grid-auto-flow: column;
+	place-content: center;
+	gap: 1vmin;
+}
+
+.gallery--sunflower .gallery__item {
+	width: 12vmin;
+	aspect-ratio: 4 / 3;
+	border-radius: 0.6vmin;
+}
+
+/* As the seeds in a sunflower head: the golden angle (137.508deg) from one card to the next, and the distance
+   from the middle growing with the square root of the card's number. The cards grow and brighten towards the edge */
+.gallery--switch.gallery--sunflower .gallery__item {
+	--angle: calc(var(--i) * 137.508deg);
+	--radius: calc(sqrt(var(--i) + 0.5) * 4.3vmin);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: calc(3.5vmin + var(--i) * 0.075vmin);
+	transform: translate(calc(-50% + cos(var(--angle)) * var(--radius)), calc(-50% + sin(var(--angle)) * var(--radius)));
+	filter: brightness(calc(0.5 + var(--i) * 0.0056));
+}
+
+.gallery--sunflower .caption {
+	position: absolute;
+	width: 100%;
+	bottom: -50vh;
+	left: 0;
+	padding: 4.5vw;
+	max-width: calc(20rem + 9vw);
+	font-size: 1rem;
+	opacity: 0;
+}
+
+.gallery--sunflower .caption p {
+	margin: 0;
+}
+
+.gallery--switch.gallery--sunflower .caption {
+	bottom: 0;
+	opacity: 1;
+}
+
+/* A row of whole pictures (a column on phones), which js/index.js rolls up into a ring and unrolls on scroll.
+   Every picture is placed absolutely, in both layouts, so nothing reflows while Flip changes their sizes */
+.gallery-wrap--3d {
+	perspective: 1000px;
+}
+
+.gallery--carousel {
+	/* On phones the column sits higher, clear of the caption */
+	--h: 8svh;
+	--g: 1svh;
+	--cy: calc(50% - 11svh);
+	transform-style: preserve-3d;
+}
+
+.gallery--carousel .gallery__item {
+	position: absolute;
+	left: calc(50% - var(--h) / 3);
+	top: calc(var(--cy) + (var(--k) - 3) * (var(--h) + var(--g)) - var(--h) / 2);
+	width: calc(var(--h) * 2 / 3);
+	height: var(--h);
+	filter: brightness(var(--light, 1));
+}
+
+.gallery--carousel .gallery__item:nth-child(1) { --k: 0; }
+.gallery--carousel .gallery__item:nth-child(2) { --k: 1; }
+.gallery--carousel .gallery__item:nth-child(3) { --k: 2; }
+/* The card at the front, which becomes the large picture, stays on top of the others */
+.gallery--carousel .gallery__item:nth-child(4) { --k: 3; z-index: 2; }
+.gallery--carousel .gallery__item:nth-child(5) { --k: 4; }
+.gallery--carousel .gallery__item:nth-child(6) { --k: 5; }
+.gallery--carousel .gallery__item:nth-child(7) { --k: 6; }
+
+/* Then a Flip switch: the card at the front becomes one large picture, the other six a strip of thumbnails under it */
+.gallery--switch.gallery--carousel {
+	--fh: 46svh;
+	--tw: min(7svh, (88vw - 5 * 1svh) / 6);
+	--th: calc(var(--tw) * 3 / 2);
+	--tg: 1svh;
+	--fg: 1.5svh;
+	--cy: calc(50% - 7svh);
+	--ftop: calc(var(--cy) - (var(--fh) + var(--fg) + var(--th)) / 2);
+}
+
+.gallery--switch.gallery--carousel .gallery__item {
+	left: calc(50% + (var(--j) - 2.5) * (var(--tw) + var(--tg)) - var(--tw) / 2);
+	top: calc(var(--ftop) + var(--fh) + var(--fg));
+	width: var(--tw);
+	height: var(--th);
+}
+
+.gallery--switch.gallery--carousel .gallery__item:nth-child(1) { --j: 0; }
+.gallery--switch.gallery--carousel .gallery__item:nth-child(2) { --j: 1; }
+.gallery--switch.gallery--carousel .gallery__item:nth-child(3) { --j: 2; }
+.gallery--switch.gallery--carousel .gallery__item:nth-child(5) { --j: 3; }
+.gallery--switch.gallery--carousel .gallery__item:nth-child(6) { --j: 4; }
+.gallery--switch.gallery--carousel .gallery__item:nth-child(7) { --j: 5; }
+
+.gallery--switch.gallery--carousel .gallery__item:nth-child(4) {
+	left: calc(50% - var(--fh) / 3);
+	top: var(--ftop);
+	width: calc(var(--fh) * 2 / 3);
+	height: var(--fh);
+}
+
+/* With the feature view: under the thumbnails on phones, beside the large picture on desktop */
+.gallery--carousel .caption {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding: 4.5vw;
+	max-width: 730px;
+}
+
+/* A contact sheet of four by four, its pictures going round clockwise from the top */
+.gallery--sun {
+	display: grid;
+	grid-template-columns: repeat(4, auto);
+	grid-template-rows: repeat(4, auto);
+	place-content: center;
+	gap: 2vmin;
+}
+
+.gallery--sun .gallery__item {
+	height: 18vmin;
+	aspect-ratio: 2 / 3;
+}
+
+.gallery--sun .gallery__item:nth-child(1) { grid-area: 1 / 3; --n: 0; }
+.gallery--sun .gallery__item:nth-child(2) { grid-area: 1 / 4; --n: 1; }
+.gallery--sun .gallery__item:nth-child(3) { grid-area: 2 / 3; --n: 2; }
+.gallery--sun .gallery__item:nth-child(4) { grid-area: 2 / 4; --n: 3; }
+.gallery--sun .gallery__item:nth-child(5) { grid-area: 3 / 4; --n: 4; }
+.gallery--sun .gallery__item:nth-child(6) { grid-area: 4 / 4; --n: 5; }
+.gallery--sun .gallery__item:nth-child(7) { grid-area: 3 / 3; --n: 6; }
+.gallery--sun .gallery__item:nth-child(8) { grid-area: 4 / 3; --n: 7; }
+.gallery--sun .gallery__item:nth-child(9) { grid-area: 4 / 2; --n: 8; }
+.gallery--sun .gallery__item:nth-child(10) { grid-area: 4 / 1; --n: 9; }
+.gallery--sun .gallery__item:nth-child(11) { grid-area: 3 / 2; --n: 10; }
+.gallery--sun .gallery__item:nth-child(12) { grid-area: 3 / 1; --n: 11; }
+.gallery--sun .gallery__item:nth-child(13) { grid-area: 2 / 1; --n: 12; }
+.gallery--sun .gallery__item:nth-child(14) { grid-area: 1 / 1; --n: 13; }
+.gallery--sun .gallery__item:nth-child(15) { grid-area: 2 / 2; --n: 14; }
+.gallery--sun .gallery__item:nth-child(16) { grid-area: 1 / 2; --n: 15; }
+
+/* They bloom into a sun around the caption, every picture pointing away from the middle,
+   each on the ray nearest to where it was, so they travel outwards */
+.gallery--switch.gallery--sun .gallery__item {
+	grid-area: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 24vmin;
+	margin: -12vmin 0 0 -8vmin;
+	transform: rotate(calc(var(--n) * 22.5deg + 11.25deg)) translateY(calc(-16vmin - 50%));
+}
+
+.gallery--sun .caption {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: 0 calc(50% - 13vmin);
+	text-align: center;
+	font-size: clamp(1.25rem, 3.6vmin, 2.25rem);
+	line-height: 1.1;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.gallery--switch.gallery--sun .caption {
+	opacity: 1;
+}
+
+/* A contact sheet of three by two */
+.gallery--pile {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	place-content: center;
+	gap: 2vmin;
+}
+
+.gallery--pile .gallery__item {
+	height: 32vmin;
+	aspect-ratio: 2 / 3;
+}
+
+/* Tossed onto a pile, one on top of the other, each at its own angle, the ones underneath darker */
+.gallery--switch.gallery--pile .gallery__item {
+	grid-area: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 56vmin;
+	margin: -28vmin 0 0 calc(-56vmin / 3);
+	transform: translate(var(--x), var(--y)) rotate(var(--r));
+	filter: brightness(var(--light));
+}
+
+.gallery--switch.gallery--pile .gallery__item:nth-child(1) { --x: -6vmin; --y: 2vmin; --r: -12deg; --light: 0.45; }
+.gallery--switch.gallery--pile .gallery__item:nth-child(2) { --x: 5vmin; --y: -3vmin; --r: 7deg; --light: 0.55; }
+.gallery--switch.gallery--pile .gallery__item:nth-child(3) { --x: -2vmin; --y: -5vmin; --r: -4deg; --light: 0.65; }
+.gallery--switch.gallery--pile .gallery__item:nth-child(4) { --x: 7vmin; --y: 4vmin; --r: 15deg; --light: 0.75; }
+.gallery--switch.gallery--pile .gallery__item:nth-child(5) { --x: -5vmin; --y: 3vmin; --r: -9deg; --light: 0.88; }
+.gallery--switch.gallery--pile .gallery__item:nth-child(6) { --x: 1vmin; --y: -1vmin; --r: 3deg; --light: 1; }
+
+.gallery--pile .caption {
+	position: absolute;
+	width: 100%;
+	bottom: -50vh;
+	left: 0;
+	padding: 4.5vw;
+	color: var(--color-text-alt);
+	opacity: 0;
+}
+
+.gallery--pile .caption p {
+	margin: 0;
+}
+
+.gallery--switch.gallery--pile .caption {
+	bottom: 0;
+	opacity: 1;
+}
+
+/* Six frames of different sizes, hung like a salon wall */
+.gallery--slices .gallery__item {
+	position: absolute;
+	height: var(--h);
+	aspect-ratio: 2 / 3;
+	margin: calc(var(--h) / -2) 0 0 calc(var(--h) / -3);
+	background-size: 100% 100%;
+}
+
+.gallery--slices .gallery__item:nth-child(1) { left: 14%; top: 30%; --h: 28vmin; }
+.gallery--slices .gallery__item:nth-child(2) { left: 30%; top: 66%; --h: 38vmin; }
+.gallery--slices .gallery__item:nth-child(3) { left: 44%; top: 24%; --h: 24vmin; }
+.gallery--slices .gallery__item:nth-child(4) { left: 60%; top: 56%; --h: 44vmin; }
+.gallery--slices .gallery__item:nth-child(5) { left: 76%; top: 26%; --h: 30vmin; }
+.gallery--slices .gallery__item:nth-child(6) { left: 86%; top: 72%; --h: 26vmin; }
+
+/* They stack into one portrait, each one a band showing its own sixth of the picture */
+.gallery--switch.gallery--slices {
+	--portrait: min(84svh, 120vw);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6vmin;
+}
+
+.gallery--switch.gallery--slices .gallery__item {
+	position: relative;
+	left: auto;
+	top: auto;
+	margin: 0;
+	width: calc(var(--portrait) * 2 / 3);
+	height: calc(var(--portrait) / 6);
+	aspect-ratio: auto;
+	border-radius: 0;
+	background-size: 100% 600%;
+}
+
+.gallery--switch.gallery--slices .gallery__item:nth-child(1) { background-position: 50% 0%; }
+.gallery--switch.gallery--slices .gallery__item:nth-child(2) { background-position: 50% 20%; }
+.gallery--switch.gallery--slices .gallery__item:nth-child(3) { background-position: 50% 40%; }
+.gallery--switch.gallery--slices .gallery__item:nth-child(4) { background-position: 50% 60%; }
+.gallery--switch.gallery--slices .gallery__item:nth-child(5) { background-position: 50% 80%; }
+.gallery--switch.gallery--slices .gallery__item:nth-child(6) { background-position: 50% 100%; }
+
+.gallery--slices .caption {
+	position: absolute;
+	width: 100%;
+	bottom: -50vh;
+	left: 0;
+	padding: 4.5vw;
+	color: var(--color-text-alt);
+	opacity: 0;
+}
+
+.gallery--slices .caption p {
+	margin: 0;
+}
+
+.gallery--switch.gallery--slices .caption {
+	bottom: 0;
+	opacity: 1;
+}
+
+/* A curtain of six strips, edge to edge and full height, each showing the middle of its portrait */
+.gallery--stairs {
+	--u: 1vmin;
+}
+
+.gallery--stairs .gallery__item {
+	position: absolute;
+	top: 0;
+	left: calc(var(--n) * 100% / 6);
+	width: calc(100% / 6);
+	height: 100%;
+	border-radius: 0;
+}
+
+.gallery--stairs .gallery__item:nth-child(1) { --n: 0; }
+.gallery--stairs .gallery__item:nth-child(2) { --n: 1; }
+.gallery--stairs .gallery__item:nth-child(3) { --n: 2; }
+.gallery--stairs .gallery__item:nth-child(4) { --n: 3; }
+.gallery--stairs .gallery__item:nth-child(5) { --n: 4; }
+.gallery--stairs .gallery__item:nth-child(6) { --n: 5; }
+
+/* The curtain parts: each strip widens into its whole portrait and steps down into a staircase,
+   the pictures growing towards the front, and lighter */
+.gallery--switch.gallery--stairs .gallery__item {
+	top: 50%;
+	left: 50%;
+	width: calc(var(--h) * var(--u) * 2 / 3);
+	height: calc(var(--h) * var(--u));
+	border-radius: 6px;
+	margin: calc(var(--h) * var(--u) / -2) 0 0 calc(var(--h) * var(--u) / -3);
+	transform: translate(calc(var(--x) * var(--u)), calc(var(--y) * var(--u)));
+	filter: brightness(var(--light));
+}
+
+.gallery--switch.gallery--stairs .gallery__item:nth-child(1) { --x: -45; --y: -22; --h: 22; --light: 0.5; z-index: 1; }
+.gallery--switch.gallery--stairs .gallery__item:nth-child(2) { --x: -29; --y: -14; --h: 28; --light: 0.6; z-index: 2; }
+.gallery--switch.gallery--stairs .gallery__item:nth-child(3) { --x: -13; --y: -6; --h: 34; --light: 0.7; z-index: 3; }
+.gallery--switch.gallery--stairs .gallery__item:nth-child(4) { --x: 3; --y: 2; --h: 40; --light: 0.8; z-index: 4; }
+.gallery--switch.gallery--stairs .gallery__item:nth-child(5) { --x: 19; --y: 10; --h: 46; --light: 0.9; z-index: 5; }
+.gallery--switch.gallery--stairs .gallery__item:nth-child(6) { --x: 35; --y: 18; --h: 52; --light: 1; z-index: 6; }
+
+.gallery--stairs .caption {
+	position: absolute;
+	width: 100%;
+	bottom: -50vh;
+	left: 0;
+	padding: 4.5vw;
+	color: var(--color-text-alt);
+	opacity: 0;
+}
+
+.gallery--stairs .caption p {
+	margin: 0;
+}
+
+.gallery--switch.gallery--stairs .caption {
+	bottom: 0;
+	opacity: 1;
+}
+
+/* A wall of square tiles, as big as fits the screen, every tile whole, grey and dim */
+.gallery--question {
+	--m: min((96vw - 18px) / 10, (94svh - 14px) / 8);
+	display: grid;
+	grid-template-columns: repeat(10, var(--m));
+	grid-auto-rows: var(--m);
+	place-content: center;
+	gap: 2px;
+}
+
+.gallery--question .gallery__item {
+	border-radius: 0;
+	filter: contrast(0.8) saturate(0) brightness(0.6);
+}
+
+/* The tiles regroup into one big question mark, in colour, each at its cell in the glyph (--gr, --gc) */
+.gallery--switch.gallery--question {
+	--cell: min(4.2svh, 6.6vw);
+	grid-template-columns: repeat(12, var(--cell));
+	grid-template-rows: repeat(17, var(--cell));
+	grid-auto-rows: auto;
+	gap: min(0.5svh, 0.8vw);
+}
+
+.gallery--switch.gallery--question .gallery__item {
+	grid-row: var(--gr);
+	grid-column: var(--gc);
+	border-radius: 2px;
+	filter: contrast(1) saturate(1) brightness(0.9);
+}
+
+/* "What is creativity" next to it, the tiles being its question mark */
+.gallery--question .caption {
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 100%;
+	padding: 0 6vw;
+	text-align: center;
+	font-size: clamp(2rem, 8vw, 5rem);
+	line-height: 1;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.gallery--switch.gallery--question .caption {
+	top: 6svh;
+	opacity: 1;
+}
+
+/* The tiles are the question mark, so the caption's own is only there for screen readers */
+.gallery--question .caption__mark {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* One deck filling the whole screen, the first face on top as a full-bleed close-up */
+.gallery--deal {
+	--cell: min(29svh, 29vw);
+	display: grid;
+	place-items: center;
+	place-content: center;
+}
+
+.gallery--deal .gallery__item {
+	grid-area: 1 / 1;
+	filter: brightness(var(--shade));
+	width: 100vmax;
+	aspect-ratio: 1;
+	border-radius: 0;
+}
+
+/* Deeper in the deck, deeper in shadow: the top card fully lit, each one under it a little darker */
+.gallery--deal .gallery__item:nth-child(1) { z-index: 8; --shade: 1.0; }
+.gallery--deal .gallery__item:nth-child(2) { z-index: 7; --shade: 0.91; }
+.gallery--deal .gallery__item:nth-child(3) { z-index: 6; --shade: 0.82; }
+.gallery--deal .gallery__item:nth-child(4) { z-index: 5; --shade: 0.73; }
+.gallery--deal .gallery__item:nth-child(5) { z-index: 4; --shade: 0.64; }
+.gallery--deal .gallery__item:nth-child(6) { z-index: 3; --shade: 0.55; }
+.gallery--deal .gallery__item:nth-child(7) { z-index: 2; --shade: 0.46; }
+.gallery--deal .gallery__item:nth-child(8) { z-index: 1; --shade: 0.37; }
+
+/* Dealt out clockwise into a frame of faces, three by three, the middle left for the caption */
+.gallery--switch.gallery--deal {
+	grid-template-columns: repeat(3, var(--cell));
+	grid-template-rows: repeat(3, var(--cell));
+	gap: min(1.5svh, 1.5vw);
+}
+
+/* Each card lights up as it is dealt, so the frame brightens card by card, clockwise */
+.gallery--switch.gallery--deal .gallery__item {
+	width: var(--cell);
+	border-radius: 6px;
+	filter: brightness(1);
+}
+
+.gallery--switch.gallery--deal .gallery__item:nth-child(1) { grid-area: 1 / 1; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(2) { grid-area: 1 / 2; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(3) { grid-area: 1 / 3; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(4) { grid-area: 2 / 3; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(5) { grid-area: 3 / 3; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(6) { grid-area: 3 / 2; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(7) { grid-area: 3 / 1; }
+.gallery--switch.gallery--deal .gallery__item:nth-child(8) { grid-area: 2 / 1; }
+
+/* The caption stays in the middle cell's place in both layouts, so it only fades in */
+.gallery--deal .caption {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: grid;
+	place-items: center;
+	padding: 0 calc(50% - var(--cell) / 2 + 0.5rem);
+	text-align: center;
+	/* Sized from the cell, so it fits on phones too, its lines evened out */
+	font-size: calc(var(--cell) * 0.11);
+	text-wrap: balance;
+	line-height: 1.1;
+	opacity: 0;
+}
+
+.gallery--switch.gallery--deal .caption {
+	opacity: 1;
+}
+
+/* The picture in nine pieces, in reading order, laid out as one long line */
+.gallery--reflow {
+	--t: 9.6vw;
+	--gap: 0.5vw;
+	width: calc(9 * var(--t) + 8 * var(--gap));
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--gap);
+}
+
+.gallery--reflow .gallery__item {
+	width: var(--t);
+	aspect-ratio: 1800 / 1344;
+	border-radius: 2px;
+	background-size: 300% 300%;
+	background-position: calc(var(--c) * 50%) calc(var(--r) * 50%);
+	filter: brightness(0.75);
+}
+
+/* The line wraps, like text into a narrower column, until the pieces make the picture again: a print, three by three */
+.gallery--switch.gallery--reflow {
+	--t: min(21vw, 22svh * 1800 / 1344);
+	width: calc(3 * var(--t) + 2 * var(--gap));
+}
+
+.gallery--switch.gallery--reflow .gallery__item {
+	filter: brightness(1);
+}
+
+/* Under the pieces, like a signature, in a box of the same width in both layouts so only its position changes */
+.gallery--reflow .caption {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: 80vw;
+	margin: 1.5rem 0 0 -40vw;
+	text-align: center;
+	font-size: clamp(1.25rem, 2.4vw, 2rem);
+	opacity: 0;
+}
+
+.gallery--switch.gallery--reflow .caption {
+	opacity: 1;
+}
+
+/* The whole screen as one collage: seven tiles of different sizes, edge to edge with hairline gaps */
+.gallery--pyramid {
+	--gap: 0.4vmin;
+	--g: 1.2svh;
+	--w: min(16svh, (88vw - 3 * var(--g)) / 4);
+	--h: calc(var(--w) * 3 / 2);
+	--shift: 0svh;
+}
+
+.gallery--pyramid .gallery__item {
+	position: absolute;
+	border-radius: 0;
+}
+
+.gallery--pyramid .gallery__item:nth-child(1) { left: calc(0% + var(--gap) / 2); top: calc(60% + var(--gap) / 2); width: calc(20% - var(--gap)); height: calc(40% - var(--gap)); }
+.gallery--pyramid .gallery__item:nth-child(2) { left: calc(20% + var(--gap) / 2); top: calc(60% + var(--gap) / 2); width: calc(18% - var(--gap)); height: calc(40% - var(--gap)); }
+.gallery--pyramid .gallery__item:nth-child(3) { left: calc(38% + var(--gap) / 2); top: calc(42% + var(--gap) / 2); width: calc(32% - var(--gap)); height: calc(58% - var(--gap)); }
+.gallery--pyramid .gallery__item:nth-child(4) { left: calc(70% + var(--gap) / 2); top: calc(55% + var(--gap) / 2); width: calc(30% - var(--gap)); height: calc(45% - var(--gap)); }
+.gallery--pyramid .gallery__item:nth-child(5) { left: calc(0% + var(--gap) / 2); top: calc(0% + var(--gap) / 2); width: calc(38% - var(--gap)); height: calc(60% - var(--gap)); }
+.gallery--pyramid .gallery__item:nth-child(6) { left: calc(70% + var(--gap) / 2); top: calc(0% + var(--gap) / 2); width: calc(30% - var(--gap)); height: calc(55% - var(--gap)); }
+.gallery--pyramid .gallery__item:nth-child(7) { left: calc(38% + var(--gap) / 2); top: calc(0% + var(--gap) / 2); width: calc(32% - var(--gap)); height: calc(42% - var(--gap)); }
+
+/* Stacked from the bottom into a step pyramid: four cards, two on the middle pair, one on top, each resting on the ones below */
+.gallery--switch.gallery--pyramid .gallery__item {
+	left: calc(50% + var(--px) * (var(--w) + var(--g)) - var(--w) / 2);
+	top: calc(50% + var(--shift) + (3 * var(--h) + 2 * var(--g)) / 2 - (var(--row) + 1) * var(--h) - var(--row) * var(--g));
+	width: var(--w);
+	height: var(--h);
+	border-radius: 6px;
+}
+
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(1) { --px: -1.5; --row: 0; }
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(2) { --px: -0.5; --row: 0; }
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(3) { --px: 0.5; --row: 0; }
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(4) { --px: 1.5; --row: 0; }
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(5) { --px: -0.5; --row: 1; }
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(6) { --px: 0.5; --row: 1; }
+.gallery--switch.gallery--pyramid .gallery__item:nth-child(7) { --px: 0; --row: 2; }
+
+.gallery--pyramid .caption {
+	position: absolute;
+	width: 100%;
+	bottom: -50vh;
+	left: 0;
+	padding: 4.5vw;
+	color: var(--color-text-alt);
+	opacity: 0;
+	z-index: 10;
+}
+
+.gallery--pyramid .caption p {
+	margin: 0;
+}
+
+.gallery--switch.gallery--pyramid .caption {
+	bottom: 0;
+	opacity: 1;
+}
+
+@media screen and (max-width: 53em) {
+	.gallery--stairs {
+		--u: 0.85vmin;
+	}
+	.gallery--reflow {
+		--t: 20vw;
+		--gap: 1vw;
+		width: var(--t);
+	}
+	.gallery--switch.gallery--reflow {
+		--t: 29vw;
+		width: calc(3 * var(--t) + 2 * var(--gap));
+	}
+	/* Higher on phones, leaving room for the caption under the pyramid */
+	.gallery--pyramid {
+		--shift: -10svh;
+	}
+	.gallery--question {
+		--m: min((96vw - 14px) / 8, (94svh - 18px) / 10);
+		grid-template-columns: repeat(8, var(--m));
+	}
+}
+
 @media screen and (min-width: 53em) {
 	.frame {
-		grid-template-columns: auto auto auto 1fr;
-		grid-template-areas: 'title prev ... sponsor';
+		grid-template-columns: auto 1fr auto;
+		grid-template-areas: 'title links sponsor' 'tags tags demos';
 		align-content: space-between;
 		justify-items: start;
-		grid-gap: 2rem;
+		gap: 0.5rem 2rem;
+	}
+	.frame #cdawrap {
+		justify-self: end;
+		max-width: 300px;
+		text-align: right;
 	}
 	.frame__demos {
 		justify-self: end;
@@ -821,6 +1490,85 @@ body #cdawrap {
 	.gallery--grid10:not(.gallery--switch) .pos-15 { grid-area: 4 / 3; }
 	.gallery--grid10:not(.gallery--switch) .pos-16 { grid-area: 4 / 7; }
 
+	/* A row on desktop, its cards a little squarer than the pictures (about 166 by 219px on a 1500px wide screen); they become 2:3 in the feature view */
+	.gallery--carousel .gallery__item {
+		--w: 11vw;
+		left: calc(50% + (var(--k) - 3) * (var(--w) + 2vw) - var(--w) / 2);
+		top: calc(50% - var(--w) * 0.66);
+		width: var(--w);
+		height: calc(var(--w) * 1.32);
+	}
+	.gallery--switch.gallery--carousel {
+		--fh: 56svh;
+		--tw: 8svh;
+		--cy: 50%;
+	}
+	.gallery--carousel .caption {
+		/* Right of the large picture, which is 56svh tall and so about 19svh to each side of the middle */
+		left: calc(50% + 19svh + 3vw);
+		bottom: 45%;
+		width: auto;
+		right: 0;
+		padding: 0 4.5vw 0 0;
+		max-width: 520px;
+	}
+
+	.gallery--pyramid .caption {
+		left: auto;
+		right: 0;
+		width: calc(50% - 2.2 * (var(--w) + var(--g)));
+		max-width: 520px;
+	}
+	.gallery--switch.gallery--pyramid .caption {
+		bottom: 40%;
+	}
+
+	.gallery--pile .caption {
+		left: auto;
+		right: 0;
+		width: calc(50% - 30vmin);
+		max-width: 520px;
+	}
+	.gallery--switch.gallery--pile .caption {
+		bottom: 40%;
+	}
+
+	.gallery--slices .caption {
+		left: auto;
+		right: 0;
+		width: calc(50% - 30vmin);
+		max-width: 520px;
+	}
+	.gallery--switch.gallery--slices .caption {
+		bottom: 40%;
+	}
+
+	/* The question mark right of the middle, the words on its left */
+	.gallery--switch.gallery--question {
+		justify-content: start;
+		padding-left: 58vw;
+	}
+	.gallery--question .caption {
+		width: 56vw;
+		padding: 0;
+		text-align: right;
+	}
+	/* On the line of the dot, the glyph's bottom edge (17 cells and 16 gaps, centred) */
+	.gallery--switch.gallery--question .caption {
+		top: calc(50% + (17 * var(--cell) + 16 * min(0.5svh, 0.8vw)) / 2 - 0.85em);
+	}
+
+	/* The caption in the empty corner above the staircase */
+	.gallery--stairs .caption {
+		left: auto;
+		right: 0;
+		width: calc(50% - 4vmin);
+		max-width: 520px;
+	}
+	.gallery--switch.gallery--stairs .caption {
+		bottom: 62%;
+	}
+
 	.gallery--stack .caption {
 		bottom: 40%;
 		width: 60vw;
@@ -831,7 +1579,4 @@ body #cdawrap {
 		left: 40vw;
 	}
 
-	body #cdawrap {
-	    justify-self: end;
-	}
 }
