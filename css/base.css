@@ -1431,10 +1431,12 @@ main {
 }
 
 @media screen and (min-width: 53em) {
+	/* Title, links and the ad's place share the top row, their tops in line */
 	.frame {
 		grid-template-columns: auto 1fr auto;
 		grid-template-areas: 'title links sponsor' 'tags tags demos';
 		align-content: space-between;
+		align-items: start;
 		justify-items: start;
 		gap: 0.5rem 2rem;
 	}
